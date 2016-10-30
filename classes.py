@@ -1,4 +1,4 @@
-#Классы буддут в этом файле
+#Классы будут в этом файле
 
 import blowfish
 from os import urandom
