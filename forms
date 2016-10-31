@@ -1,0 +1,38 @@
+#работа с формами, используем фласк, скоро соединится с this_bot, появятся функции обработки данных с формы
+
+from flask import Flask, render_template
+
+from flask.ext.wtf import Form
+from wtforms import StringField, SubmitField, PasswordField
+from wtforms.validators import Required
+
+from flask.ext.bootstrap import Bootstrap
+
+CSRF_ENABLED = True
+SECRET_KEY = 'you-will-never-guess'
+
+
+class NameForm(Form):
+    login_form = StringField('Input login', validators=[Required()])
+    password_form = PasswordField('Password', validators=[Required()])
+    submit = SubmitField('Submit')
+
+
+app = Flask(__name__)
+bootstrap = Bootstrap(app)
+
+
+@app.route("/")
+def get_data():
+    login = None
+    password = None
+    form = NameForm()
+    if form.validate_on_submit():
+        login = form.login_form.data
+        password = form.password_form.data
+        form.password_form.data = ''
+        form.login_form.data = ''
+        return render_template('page.html', form=form)
+
+if __name__ == '__main__':
+    app.run(debug=True)
