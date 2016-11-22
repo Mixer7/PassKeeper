@@ -1,12 +1,66 @@
+<!DOCTYPE HTML>
 <html>
-  <head>
+<head>
+<meta charset="UTF-8">
+<title>Passkeeper</title>
 
-    <title>Passkeeper</title>
+<style>
+    html{
+        overflow: hidden;
+    }
+html, body {
+    height: 80%;
+    color: azure;
 
-  </head>
-  <body>
-    <div>Passkeeper: <a href="page.html">Form</a></div>
-    <hr>
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: larger;
+    border: 10px slategray;
+    border-radius: 6px;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: larger;
+    border: 10px slategray;
+    border-radius: 6px;
+}
+body {
+    align-items: center;
+    background: url("{{url_for('static', filename = './img/background.jpg')}}") no-repeat ;
+    background-size: auto;
+
+}
+
+label {
+    font-size: 14pt;
+    font-family: Arial;
+    font-stretch: semi-expanded;
+    font-style: oblique;
+}
+
+h1 {
+    font-size: 40px;
+}
+    #wrapper{
+        width: 50%;
+        height: 50%;
+        margin: 20% auto;
+        align-items: center;
+	    align-self: center;
+    }
+</style>
+</head>
+<body>
+<div id="wrapper">
     {% block content %}{% endblock %}
-  </body>
+</div>
+</body>
 </html>
