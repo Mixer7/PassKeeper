@@ -6,7 +6,7 @@ WORKDIR /PassKeeper
 COPY requirements.txt /PassKeeper
 RUN pip install -r requirements.txt
 
-COPY ___.py /PassKeeper
+COPY __ /PassKeeper
 
 ENTRYPOINT ["python"]
 CMD ["???"]
